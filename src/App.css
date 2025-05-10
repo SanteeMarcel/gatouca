@@ -1,0 +1,374 @@
+/* General App Styles */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #fff; /* Overall background */
+}
+
+.main-content {
+  flex-grow: 1;
+  max-width: 1920px; /* Max width for content sections */
+  margin: 0 auto;
+  padding: 0 20px; /* Padding for content sections */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Header Styles */
+.header {
+  background-color: var(--primary-purple);
+  color: var(--text-light);
+  padding: 1rem 0; /* Vertical padding, horizontal handled by container */
+  width: 100%;
+}
+
+.header-content {
+  max-width: 1920px;
+  height: 128px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-text {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.nav-dropdown {
+  position: relative;
+}
+
+.dropdown-button {
+  background-color: white;
+  color: var(--text-dark);
+  padding: 1em 1.5em;
+  font-size: 1.25rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+.dropdown-button span {
+  margin-right: 0.5em;
+}
+
+.dropdown-arrow {
+  border: solid var(--text-dark);
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+  z-index: 10;
+  min-width: 150px;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 1em 1.25em;
+  text-decoration: none;
+  color: var(--text-dark);
+}
+
+.dropdown-menu a:hover {
+  background-color: #f0f0f0;
+}
+
+/* About Section Styles */
+.about-section {
+  padding: 3rem 0;
+  text-align: left; /* Align content to left as in image */
+  position: relative; /* For absolute positioning of purple cat */
+}
+
+.about-content {
+  display: flex;
+  flex-direction: column; /* Stack title and text on small screens */
+  align-items: flex-start; /* Align items to the start */
+}
+
+@media (min-width: 768px) {
+  .about-content {
+    flex-direction: row; /* Side-by-side on larger screens */
+    justify-content: space-between; /* Space between title/text and main text */
+    align-items: flex-start; 
+  }
+  .about-title-container {
+    margin-right: 2rem; /* Space between title block and text */
+    flex-shrink: 0;
+  }
+}
+
+.about-title-container {
+  margin-bottom: 1.5rem;
+}
+
+.about-title-sobre {
+  font-size: 8rem;
+  font-weight: bold;
+  color: var(--text-dark);
+  display: block; /* Ensure "Sobre o" is on its own line or part of the flow */
+}
+
+.about-title-gatouca {
+  font-size: 8rem;
+  font-weight: bold;
+  color: var(--primary-purple);
+  display: block; /* Ensure "GATOUCA" is on its own line */
+  position: relative;
+  padding-bottom: 0.5rem; /* Space for underline */
+}
+
+.about-title-gatouca::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%; /* Adjust width of underline */
+  height: 4px;
+  background-color: var(--text-dark);
+}
+
+.about-title-gatouca .star {
+  color: var(--text-dark);
+  font-size: 5rem; /* Adjust star size */
+  position: absolute;
+  right: -15%; /* Position star near end of underline */
+  bottom: -4rem; /* Adjust vertical position of star */
+}
+
+.about-text {
+  font-size: 2rem;
+  line-height: 1.6;
+  color: var(--text-dark);
+  max-width: 600px; /* Limit width of the paragraph */
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600; /* This is semibold */
+  margin-bottom: 3rem; /* Add extra space below the text */
+  margin-right: 20rem;
+}
+
+/* Purple Cat Styling */
+.purple-cat-wrapper {
+  position: absolute;
+  bottom: -575px; /* Adjust to control how much the cat extends below */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2; /* Ensure cat appears above the peeking-cat-container */
+}
+
+.purple-cat {
+  width: 600px; /* Adjust size as needed */
+  height: auto;
+}
+
+.peeking-cat-container {
+  background-color: var(--primary-purple);
+  width: 100%; /* Full width */
+  margin-top: 20rem;
+  height: 100px; /* Adjust as needed */
+  position: relative; /* For positioning */
+  z-index: 1; /* Lower than the purple cat */
+}
+
+/* Chef Section Styles */
+.chef-section {
+  padding: 3rem 0;
+  text-align: center;
+}
+
+.chef-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem 0;
+  font-size: 5rem;
+  font-weight: bold;
+  color: var(--primary-purple);
+  text-transform: uppercase;
+  font-family: 'Gismo', 'Ortland', 'Gonzaga', 'Crude', sans-serif;
+  background-color: #FBF4FC;
+}
+
+.chef-hat-icon {
+  width: 40px; /* Adjust size */
+  height: 40px;
+  margin: 0 1rem;
+}
+
+.chef-cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.silhouette-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.chef-silhouette {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  width: auto;
+  height: auto;
+}
+
+/* Flip Card Styles */
+/* Flip Card Styles */
+.flip-card {
+  background-color: transparent;
+  width: 360px;
+  height: 540px;
+  perspective: 1920px;
+  cursor: pointer;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.flip-card.flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flip-card-front svg {
+  width: 80%;
+  height: 80%;
+}
+
+.flip-card-back {
+  background-color: #f0f0f0;
+  color: var(--text-dark);
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0;
+  overflow: hidden;
+}
+
+.flip-card-back img {
+  width: 85%;
+  height: 380px;
+  border-radius: 0;
+  margin-bottom: 0;
+  object-fit: cover;
+}
+
+.text-content-area {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border-top: 4px solid white;
+  color: #ffffff;
+}
+
+.text-content-area h3 {
+  margin: 0.1rem 0;  /* Very small vertical margins */
+  font-size: 30px;
+  font-family: 'Gismo', 'Ortland', 'Gonzaga', 'Crude', sans-serif;
+}
+
+.text-content-area p {
+  margin: 0.25rem 0;  /* Very small vertical margins */
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Footer Styles */
+.footer {
+  padding: 2rem 0 1rem 0; /* More padding at top */
+  text-align: center;
+  background-color: #fff; /* Ensure footer background if content above is shorter */
+  margin-top: auto; /* Pushes footer to bottom if content is short */
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column; /* Default stacking */
+  align-items: center;
+  gap: 2rem;
+}
+
+.footer-cat-svg {
+  width: 900px; /* Adjust size */
+  height: auto;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact-title {
+  font-size: 6rem;
+  font-weight: bold;
+  color: var(--primary-purple);
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+.social-icons {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.social-icons a img {
+  width: 6rem; /* Adjust icon size */
+  height: 6rem;
+}
+
+@media (min-width: 768px) {
+  .footer-content {
+    flex-direction: row; /* Side-by-side on larger screens */
+    justify-content: space-around; /* Distribute space */
+    align-items: flex-end; /* Align to bottom for varied height items */
+  }
+  .contact-info {
+    align-items: flex-start; /* Align text to left if side-by-side */
+  }
+}

@@ -1,0 +1,302 @@
+.chef-page-container {
+  width: 100%;
+  font-family: 'Poppins', sans-serif; /* Assuming Poppins is available or use a fallback */
+  color: var(--chef-text-color);
+  background-color: #fff; /* Default page background, sections can override */
+}
+
+/* Chef Introduction Section */
+.chef-intro-section {
+  background-color: #fff; /* As per image, this area is white */
+  padding: 40px 5%; /* Use percentage for responsive padding */
+  display: flex;
+  justify-content: center;
+  position: relative; /* For positioning the image */
+}
+
+.chef-intro-content {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1700px; /* Max width for content */
+  width: 100%;
+  position: relative; /* For positioning the image */
+}
+
+.chef-intro-text {
+  flex: 1;
+  max-width: 300px; /* Limit width for left side */
+}
+
+.chef-intro-title {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--chef-text-color);
+  margin-bottom: 0.5em;
+}
+
+.chef-intro-name {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--chef-main-color);
+  display: block;
+  position: relative;
+  padding-bottom: 0.2em; /* Space for underline */
+}
+
+.chef-intro-name::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 60%; /* Adjust width of underline */
+  height: 5px;
+  background-color: var(--chef-main-color);
+}
+
+.chef-intro-description {
+  flex: 1;
+  max-width: 600px; /* Limit width for right side */
+  margin-left: auto; /* Push to the right */
+  font-weight: 600;
+}
+
+.chef-intro-text p,
+.chef-intro-description p {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.chef-intro-image-container {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 350px; /* Control chef image size */
+  z-index: 10; /* To show above the banner */
+}
+
+.chef-intro-image {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  position: relative;
+  top: 0;
+  transition: transform 0.5s ease;
+}
+
+/* Chef Name Banner */
+.chef-name-banner {
+  background-color: var(--chef-main-color);
+  color: var(--chef-text-on-main);
+  padding: 20px 0;
+  font-size: 3rem;
+  font-weight: 700;
+  overflow: hidden;
+  position: relative;
+  /* Add margin-top to push the banner down a bit */
+  margin-top: 120px;
+}
+
+/* Recipe Display Section */
+.recipe-display-section {
+  background-color: var(--chef-page-bg-color);
+  padding: 40px 5%;
+  display: flex;
+  justify-content: center;
+}
+
+.recipe-content-area {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  max-width: 1200px;
+  width: 100%;
+}
+
+@media (min-width: 992px) {
+  .recipe-content-area {
+    flex-direction: row;
+    gap: 40px;
+  }
+}
+
+.recipe-details-left,
+.recipe-details-right {
+  flex: 1;
+}
+
+.recipe-name {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--chef-secondary-color);
+  margin-bottom: 0.2em;
+}
+
+.recipe-difficulty {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--chef-text-color);
+  margin-bottom: 1.5em;
+}
+
+.recipe-difficulty .star {
+  color: var(--chef-star-color);
+  font-size: 1.2em;
+}
+
+.recipe-main-image {
+  width: 100%;
+  max-height: 400px;
+  object-fit: contain;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.recipe-ingredients-box {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.recipe-ingredients-box h3,
+.recipe-details-right h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--chef-secondary-color);
+  margin-bottom: 0.8em;
+}
+
+.recipe-ingredients-box ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.recipe-ingredients-box ul li {
+  margin-bottom: 0.5em;
+  line-height: 1.5;
+  position: relative;
+  padding-left: 20px; /* Space for custom bullet */
+}
+.recipe-ingredients-box ul li::before {
+  content: '●'; /* Custom bullet */
+  color: var(--chef-secondary-color); /* Bullet color */
+  position: absolute;
+  left: 0;
+  font-size: 0.8em; /* Adjust bullet size */
+}
+
+
+.recipe-details-right ol {
+  list-style: none; /* Use custom numbering */
+  padding-left: 0;
+}
+
+.recipe-details-right ol li {
+  margin-bottom: 1em;
+  line-height: 1.6;
+  display: flex;
+}
+.recipe-details-right ol li span { /* Number styling */
+  font-weight: 700;
+  color: var(--chef-secondary-color);
+  margin-right: 0.5em;
+  min-width: 20px; /* Align numbers */
+}
+
+
+.recipe-video-container {
+  margin-top: 30px;
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  height: 0;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.recipe-video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Recipe Navigation Bar */
+.recipe-navigation-bar {
+  background-color: var(--chef-secondary-color);
+  padding: 15px 5%;
+  display: flex;
+  justify-content: space-between; /* Pushes arrows to sides */
+  align-items: center;
+}
+
+.nav-arrow {
+  background: none;
+  border: none;
+  color: var(--chef-text-on-secondary);
+  font-size: 2.5rem; /* Larger arrows */
+  cursor: pointer;
+  padding: 0 15px; /* Clickable area */
+  font-weight: bold;
+}
+.nav-arrow:hover {
+    opacity: 0.8;
+}
+
+.nav-dots {
+  display: flex;
+  gap: 10px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent white */
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.dot.active {
+  background-color: var(--chef-text-on-secondary); /* Solid white */
+  transform: scale(1.2);
+}
+
+/* Ensure Header logo text is a link and visible */
+.header .logo-text-link {
+  text-decoration: none;
+  color: inherit; /* Inherits from .header color: var(--text-light) */
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .chef-intro-content {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .chef-intro-text, 
+  .chef-intro-description {
+    max-width: 100%;
+    text-align: center;
+    margin: 0 auto;
+  }
+  
+  .chef-intro-name::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .chef-intro-image-container {
+    position: relative;
+    width: 250px;
+    margin: 30px auto;
+    left: auto;
+    transform: none;
+  }
+  
+  .chef-name-banner {
+    margin-top: 20px;
+  }
+}

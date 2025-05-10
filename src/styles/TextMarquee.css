@@ -1,0 +1,35 @@
+.marquee-wrapper {
+    max-width: 100%;
+    overflow: hidden; /* Clips the content that moves outside the visible area */
+  }
+  
+  .marquee-content-track {
+    white-space: nowrap; /* Prevents text items from wrapping to the next line */
+    display: inline-block; /* Ensures the track's width is based on its content, not 100% of parent */
+    animation-name: marquee-animation;
+    animation-timing-function: linear; /* Constant speed */
+    animation-iteration-count: infinite; /* Loop forever */
+    /* animation-duration is set inline via style prop in the component */
+  }
+  
+  .marquee-content-track p {
+    display: inline-block; /* Allows <p> tags to sit side-by-side */
+    margin: 0; /* Resets default paragraph margin */
+    padding: 0 0.5em; /* Provides some default spacing around text items. Adjust or override as needed. */
+    /* Font styles like size, weight, color will be inherited or can be set via textElementClassName */
+  }
+  
+  @keyframes marquee-animation {
+    0% {
+      transform: translate3d(0, 0, 0);
+    }
+    100% {
+      /* 
+        Moves the track to the left by 50% of its total width.
+        Since the track contains two identical sets of items (original + duplicate),
+        this means it moves by the exact width of one set of items,
+        creating a seamless loop when the duplicate set comes into view.
+      */
+      transform: translate3d(-50%, 0, 0);
+    }
+  }
