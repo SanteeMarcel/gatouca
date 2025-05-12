@@ -4,6 +4,7 @@
   flex-direction: column;
   min-height: 100vh;
   background-color: #fff; /* Overall background */
+  overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 .main-content {
@@ -13,6 +14,7 @@
   padding: 0 20px; /* Padding for content sections */
   width: 100%;
   box-sizing: border-box;
+  position: relative; /* Create stacking context */
 }
 
 /* Header Styles */
@@ -91,49 +93,41 @@
   background-color: #f0f0f0;
 }
 
-/* About Section Styles */
 .about-section {
-  padding: 3rem 0;
-  text-align: left; /* Align content to left as in image */
-  position: relative; /* For absolute positioning of purple cat */
+  padding: 3rem 0; 
+  text-align: left; 
+  position: static; /* Changed from relative */
+  overflow: visible; /* Changed from overflow-x: hidden */
 }
 
 .about-content {
   display: flex;
-  flex-direction: column; /* Stack title and text on small screens */
-  align-items: flex-start; /* Align items to the start */
-}
-
-@media (min-width: 768px) {
-  .about-content {
-    flex-direction: row; /* Side-by-side on larger screens */
-    justify-content: space-between; /* Space between title/text and main text */
-    align-items: flex-start; 
-  }
-  .about-title-container {
-    margin-right: 2rem; /* Space between title block and text */
-    flex-shrink: 0;
-  }
+  flex-direction: column; 
+  align-items: flex-start; 
+  position: relative; /* Added position relative */
 }
 
 .about-title-container {
   margin-bottom: 1.5rem;
+  width: 100%; 
 }
 
 .about-title-sobre {
-  font-size: 8rem;
+  font-size: 3rem; 
   font-weight: bold;
   color: var(--text-dark);
-  display: block; /* Ensure "Sobre o" is on its own line or part of the flow */
+  display: block; 
+  line-height: 1.1; 
 }
 
 .about-title-gatouca {
-  font-size: 8rem;
+  font-size: 3rem; 
   font-weight: bold;
   color: var(--primary-purple);
-  display: block; /* Ensure "GATOUCA" is on its own line */
+  display: block; 
   position: relative;
-  padding-bottom: 0.5rem; /* Space for underline */
+  padding-bottom: 0.3em; 
+  line-height: 1.1;
 }
 
 .about-title-gatouca::after {
@@ -141,57 +135,106 @@
   position: absolute;
   left: 0;
   bottom: 0;
-  width: 100%; /* Adjust width of underline */
+  width: 80%; 
+  max-width: 300px; 
   height: 4px;
   background-color: var(--text-dark);
 }
 
 .about-title-gatouca .star {
   color: var(--text-dark);
-  font-size: 5rem; /* Adjust star size */
+  font-size: 2rem; 
   position: absolute;
-  right: -15%; /* Position star near end of underline */
-  bottom: -4rem; /* Adjust vertical position of star */
+  right: 0; 
+  bottom: -1.5rem; 
+  transform: translateX(20%); 
 }
 
 .about-text {
-  font-size: 2rem;
+  font-size: 1.1rem; 
   line-height: 1.6;
   color: var(--text-dark);
-  max-width: 600px; /* Limit width of the paragraph */
+  max-width: 100%; 
   font-family: 'Poppins', sans-serif;
-  font-weight: 600; /* This is semibold */
-  margin-bottom: 3rem; /* Add extra space below the text */
-  margin-right: 20rem;
+  font-weight: 600; 
+  margin-bottom: 2rem; 
+  margin-right: 0; 
 }
 
-/* Purple Cat Styling */
 .purple-cat-wrapper {
-  position: absolute;
-  bottom: -575px; /* Adjust to control how much the cat extends below */
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 2; /* Ensure cat appears above the peeking-cat-container */
+  position: relative; 
+  text-align: center; 
+  z-index: 2;
 }
 
 .purple-cat {
-  width: 600px; /* Adjust size as needed */
+  width: 80vw; 
+  max-width: 280px; 
   height: auto;
+  display: block; 
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0%;
 }
 
 .peeking-cat-container {
   background-color: var(--primary-purple);
-  width: 100%; /* Full width */
-  margin-top: 20rem;
-  height: 100px; /* Adjust as needed */
-  position: relative; /* For positioning */
-  z-index: 1; /* Lower than the purple cat */
+  width: 100%;
+  position: relative;
+  z-index: 1; 
+  width: 100%;
+  height: 100px;
+  margin-top: 0%;
+}
+
+/* Desktop and larger screens */
+@media (min-width: 768px) {
+  .about-content {
+    flex-direction: row; 
+    justify-content: space-between; 
+    align-items: flex-start; 
+  }
+  .about-title-container {
+    margin-right: 2rem; 
+    flex-shrink: 0;
+    width: auto; 
+  }
+
+  .about-title-sobre {
+    font-size: 8rem; 
+  }
+
+  .about-title-gatouca {
+    font-size: 8rem; 
+    padding-bottom: 0.5rem; 
+  }
+
+  .about-title-gatouca::after {
+     width: 100%; 
+     max-width: none; 
+  }
+
+  .about-title-gatouca .star {
+    font-size: 5rem; 
+    position: absolute;
+    right: -3rem; 
+    bottom: -4rem; 
+    transform: none; 
+  }
+
+  .about-text {
+    font-size: 2rem; 
+    max-width: 600px; 
+    margin-bottom: 3rem; 
+  } 
 }
 
 /* Chef Section Styles */
 .chef-section {
   padding: 3rem 0;
   text-align: center;
+  position: relative; /* Added position relative */
+  z-index: 2; /* Ensure proper stacking */
 }
 
 .chef-divider {
@@ -238,7 +281,6 @@
   height: auto;
 }
 
-/* Flip Card Styles */
 /* Flip Card Styles */
 .flip-card {
   background-color: transparent;
@@ -320,21 +362,26 @@
 
 /* Footer Styles */
 .footer {
-  padding: 2rem 0 1rem 0; /* More padding at top */
+  padding: 2rem 0 1rem 0; 
   text-align: center;
-  background-color: #fff; /* Ensure footer background if content above is shorter */
-  margin-top: auto; /* Pushes footer to bottom if content is short */
+  background-color: #fff; 
+  margin-top: auto; 
+  overflow-x: hidden; /* Prevent horizontal scroll from footer content */
+  position: relative; /* Added position relative */
+  z-index: 3; /* Ensure proper stacking */
 }
 
 .footer-content {
   display: flex;
-  flex-direction: column; /* Default stacking */
+  flex-direction: column; 
   align-items: center;
-  gap: 2rem;
+  gap: 1.5rem; /* Mobile gap */
+  padding: 0 15px; /* Add some horizontal padding for safety on mobile */
 }
 
 .footer-cat-svg {
-  width: 900px; /* Adjust size */
+  width: 70vw; /* Mobile size: responsive to viewport width */
+  max-width: 280px; /* Max size for the cat SVG on mobile */
   height: auto;
 }
 
@@ -345,30 +392,53 @@
 }
 
 .contact-title {
-  font-size: 6rem;
+  font-size: 2.5rem; /* Mobile font size */
   font-weight: bold;
   color: var(--primary-purple);
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem; /* Mobile margin */
   text-transform: uppercase;
+  line-height: 1.2;
 }
 
 .social-icons {
   display: flex;
-  gap: 1.5rem;
+  gap: 1rem; /* Mobile gap */
 }
 
 .social-icons a img {
-  width: 6rem; /* Adjust icon size */
-  height: 6rem;
+  width: 2.5rem; /* Mobile icon size */
+  height: 2.5rem; /* Mobile icon size */
 }
 
 @media (min-width: 768px) {
   .footer-content {
-    flex-direction: row; /* Side-by-side on larger screens */
-    justify-content: space-around; /* Distribute space */
-    align-items: flex-end; /* Align to bottom for varied height items */
+    flex-direction: row; 
+    justify-content: space-around; 
+    align-items: flex-end; 
+    gap: 2rem; /* Desktop gap */
+    padding: 0 20px; 
   }
+  
+  .footer-cat-svg {
+    width: 900px; 
+    max-width: none; 
+  }
+
   .contact-info {
-    align-items: flex-start; /* Align text to left if side-by-side */
+    align-items: flex-start; 
+  }
+
+  .contact-title {
+    font-size: 6rem; 
+    margin-bottom: 1rem; 
+  }
+
+  .social-icons {
+    gap: 1.5rem; 
+  }
+
+  .social-icons a img {
+    width: 6rem; 
+    height: 6rem; 
   }
 }

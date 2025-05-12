@@ -3,7 +3,7 @@ import './App.css';
 import Header from './components/Header';
 import About from './components/About';
 import ChefSection from './components/ChefSection';
-import Footer from './components/Footer';
+import Footer from './components/Contato';
 
 import mikoImage from './assets/countries/japan/cats/profile.png'
 import carlosImage from './assets/countries/italy/cats/profile.png'

@@ -3,7 +3,6 @@ import purpleCat from '../assets/about/purple-cat.svg';
 
 const About: React.FC = () => {
   return (
-    <>
       <section className="about-section main-content">
         <div className="about-content">
           <div className="about-title-container">
@@ -22,9 +21,8 @@ const About: React.FC = () => {
         <div className="purple-cat-wrapper">
           <img src={purpleCat} alt="Purple Cat" className="purple-cat" />
         </div>
+        <div className="peeking-cat-container" />
       </section>
-      <div className="peeking-cat-container" />
-    </>
   );
 };
 
