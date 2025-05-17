@@ -93,7 +93,7 @@ const ChefPage: React.FC<ChefPageData> = ({
       <section className="chef-name-banner">
         <TextMarquee
           textItems={Array(15).fill(chefName.toUpperCase())}
-          speed={25}
+          speed={200}
         />
       </section>
 

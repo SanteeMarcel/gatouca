@@ -55,7 +55,7 @@ const ChefSection: React.FC = () => {
     <section className="chef-section main-content">
       <TextMarquee
           textItems={Array(25).fill("NOSSOS CHEFS")}
-          speed={15}
+          speed={225}
           textElementClassName='rotating-text'
           className='chef-divider'
         />
@@ -84,7 +84,7 @@ const ChefSection: React.FC = () => {
       </div>
         <TextMarquee
           textItems={Array(25).fill("NOSSOS CHEFS")}
-          speed={15}
+          speed={225}
           textElementClassName='rotating-text'
           className='chef-divider'
         />
